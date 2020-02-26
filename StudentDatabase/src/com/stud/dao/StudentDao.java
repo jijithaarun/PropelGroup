@@ -30,7 +30,7 @@ public class StudentDao {
 
 		statement = connection.prepareStatement(INSERT_STUDENT);
 
-		// set the values
+		// set the values for insert query
 
 		statement.setString(1, student.getName());
 		statement.setInt(2, student.getEnglish());
@@ -53,7 +53,7 @@ public class StudentDao {
 		return "something wrong";
 
 	}
-
+//display
 	public List<Student> display() throws Exception {
 		// create an array list
 
