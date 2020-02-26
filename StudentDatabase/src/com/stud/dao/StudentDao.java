@@ -31,15 +31,15 @@ public class StudentDao {
 		statement = connection.prepareStatement(INSERT_STUDENT);
 
 		// set the values
-		statement.setInt(1, student.getId());
-		statement.setString(2, student.getName());
-		statement.setInt(3, student.getEnglish());
+		
+		statement.setString(1, student.getName());
+		statement.setInt(2, student.getEnglish());
 
-		statement.setInt(4, student.getMalayalam());
-		statement.setInt(5, student.getMaths());
-		statement.setInt(6, student.getScience());
-		statement.setInt(7, student.getSocial());
-		statement.setInt(8, student.getTotal());
+		statement.setInt(3, student.getMalayalam());
+		statement.setInt(4, student.getMaths());
+		statement.setInt(5, student.getScience());
+		statement.setInt(6, student.getSocial());
+		statement.setInt(7, student.getTotal());
 
 		// check inserted or not
 		if (1 == statement.executeUpdate()) {
@@ -54,10 +54,10 @@ public class StudentDao {
 
 	}
 
-	public Student display() throws Exception {
+	public List<Student> display() throws Exception {
 		// create an array list
 
-		Student student = null;
+		List<Student> listStudent = new ArrayList<>();
 
 		connection = ConnectionFactory.getconnection();
 		// call prepare statement
@@ -78,12 +78,13 @@ public class StudentDao {
 			Integer total = resultSet.getInt("total");
 
 			// getting values to the patient object
-			student = new Student(regId, reName, reMaths, reEnglish,
+			Student student = new Student(regId, reName, reMaths, reEnglish,
 					reMalayalam, reSocial, reScience, total);
+			listStudent.add(student);
 
 		}
 
-		return student;
+		return listStudent;
 
 	}
 

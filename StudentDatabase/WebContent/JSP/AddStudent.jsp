@@ -9,6 +9,7 @@
 <body style="background-color: skyblue">
 <h1 style="text-align: center;"> Register Student Details</h1>
 <hr>
+<form action="<%=request.getContextPath()%>/StudentServlet?action=insert" method="post">
 <table style="margin-left: 500px; font-size: 22px;">
 <tr>
 <td>Name</td><td><input type="text" name="studentname"></td>
@@ -32,5 +33,6 @@
 
 </table>
 <button style="margin-left: 630px; ">Save</button>
+</form>
 </body>
 </html>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.stud.bean.Student;
+import com.stud.dao.StudentDao;
 
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
@@ -21,6 +22,8 @@ public class StudentServlet extends HttpServlet {
 		// reading action
 		String action = request.getParameter("action");
 
+		try
+		{
 		switch (action) {
 		case "insert":
 			inserStudentMark(request, response);
@@ -30,25 +33,36 @@ public class StudentServlet extends HttpServlet {
 			break;
 
 		}
+		}catch (Exception e) {
+			System.out.println(e);
+			// TODO: handle exception
+		}
 
 	}
 
 	private void viewStudentMark(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws ServletException, IOException {
 
 		// creating object for StudentDao
 		StudentDao studentDao = new StudentDao();
-		List<Student> listStudent = studentDao.display();
+		List<Student> listStudent;
+		try {
+			listStudent = studentDao.display();
+			request.setAttribute("listStudent", listStudent);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// setting value into List
-		request.setAttribute("listStudent", listStudent);
+		
 
 		request.getRequestDispatcher("/JSP/Student.jsp").forward(request,
 				response);
 	}
 
 	private void inserStudentMark(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) throws Exception {
 
 		// reading values
 		String name = request.getParameter("studentname");
