@@ -30,8 +30,8 @@ public class StudentDao {
 
 		statement = connection.prepareStatement(INSERT_STUDENT);
 
-		// set the values for insert query
-
+		// set the values
+		
 		statement.setString(1, student.getName());
 		statement.setInt(2, student.getEnglish());
 
@@ -53,11 +53,11 @@ public class StudentDao {
 		return "something wrong";
 
 	}
-//display
+
 	public List<Student> display() throws Exception {
 		// create an array list
 
-		List<Student> studentList = new ArrayList();
+		List<Student>studentList=new ArrayList();
 
 		connection = ConnectionFactory.getconnection();
 		// call prepare statement
