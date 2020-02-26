@@ -9,7 +9,7 @@ public class Student {
    private	int social;
    private	int maths;
    private	int malayalam;
- private	int total;
+   private	int total;
 //default constructor
    public Student(){
 	   

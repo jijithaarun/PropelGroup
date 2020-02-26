@@ -51,7 +51,7 @@ public class StudentServlet extends HttpServlet {
 			HttpServletResponse response) throws IOException {
 
 		// reading values
-		String name = request.getParameter("name");
+		String name = request.getParameter("studentname");
 		Integer maths = Integer.parseInt(request.getParameter("maths"));
 		Integer malayalam = Integer.parseInt(request.getParameter("malayalam"));
 		Integer english = Integer.parseInt(request.getParameter("english"));
@@ -65,7 +65,7 @@ public class StudentServlet extends HttpServlet {
 		Student student = new Student(name, english, science, social, maths,
 				malayalam, total);
 		// creating object for StudentDao
-		SudentDao studentDao = new StudentDao();
+		StudentDao studentDao = new StudentDao();
 
 		// calling insert method
 		studentDao.insert(student);
