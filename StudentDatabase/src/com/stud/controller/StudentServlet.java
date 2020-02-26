@@ -62,7 +62,7 @@ public class StudentServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 
 		// reading values
-		String name = request.getParameter("name");
+		String name = request.getParameter("studentname");
 		Integer maths = Integer.parseInt(request.getParameter("maths"));
 		Integer malayalam = Integer.parseInt(request.getParameter("malayalam"));
 		Integer english = Integer.parseInt(request.getParameter("english"));
