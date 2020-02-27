@@ -37,7 +37,7 @@
 					<td style="border: 2px solid; font-size: 20px;">${student.malayalam }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.social }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.science }</td>
-					<td style="border: 2px solid; font-size: 20px;">${student.total }</td><br>
+					<td style="border: 2px solid; font-size: 20px;">${student.total }</td>
 			
 			</tr>
 				</stud:forEach>
