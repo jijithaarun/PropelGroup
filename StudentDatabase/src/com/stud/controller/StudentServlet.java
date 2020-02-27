@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.stud.bean.Student;
+import com.stud.dao.StudentDao;
 
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
