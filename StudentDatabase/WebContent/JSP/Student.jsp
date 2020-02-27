@@ -27,8 +27,9 @@
 		</thead>
 
 		<tbody>
+		<stud:forEach var="student" items="${listStudent}">
 			<tr>
-				<stud:forEach var="student" items="${listStudent}">
+				
 					<td style="border: 2px solid; font-size: 20px;">${student.id }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.name }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.maths }</td>
@@ -36,9 +37,10 @@
 					<td style="border: 2px solid; font-size: 20px;">${student.malayalam }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.social }</td>
 					<td style="border: 2px solid; font-size: 20px;">${student.science }</td>
-					<td style="border: 2px solid; font-size: 20px;">${student.total }</td>
-				</stud:forEach>
+					<td style="border: 2px solid; font-size: 20px;">${student.total }</td><br>
+			
 			</tr>
+				</stud:forEach>
 		</tbody>
 	</table>
 </body>
