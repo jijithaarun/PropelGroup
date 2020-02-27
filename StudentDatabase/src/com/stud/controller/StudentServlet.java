@@ -26,10 +26,20 @@ public class StudentServlet extends HttpServlet {
 		{
 		switch (action) {
 		case "insert":
-			inserStudentMark(request, response);
+			try {
+				inserStudentMark(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case "view":
-			viewStudentMark(request, response);
+			try {
+				viewStudentMark(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		}
@@ -41,6 +51,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void viewStudentMark(HttpServletRequest request,
+
 			HttpServletResponse response) throws ServletException, IOException {
 
 		// creating object for StudentDao

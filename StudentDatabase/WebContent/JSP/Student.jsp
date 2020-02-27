@@ -11,6 +11,7 @@
 
 	<h1 style="text-align: center;">Student MarkList</h1>
 	<hr>
+	<br>
 	<table
 		style="border: 2px solid; margin-left: 350px; margin-top: 30px; font-size: 22px;">
 		<thead>

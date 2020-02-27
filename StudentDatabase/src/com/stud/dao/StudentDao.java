@@ -18,7 +18,7 @@ public class StudentDao {
 	// query for display
 	private static String FIND_ALL = "select * from student";
 
-	// objects
+	// objects created
 	private Connection connection = null;
 	private PreparedStatement statement = null;
 	private ResultSet resultSet = null;
@@ -31,14 +31,24 @@ public class StudentDao {
 		statement = connection.prepareStatement(INSERT_STUDENT);
 
 		// set the values
-		
+
 		statement.setString(1, student.getName());
 		statement.setInt(2, student.getEnglish());
+		// set the values for query
+
+		statement.setString(1, student.getName());
+		statement.setInt(2, student.getMaths());
+		statement.setInt(3, student.getEnglish());
 
 		statement.setInt(3, student.getMalayalam());
 		statement.setInt(4, student.getMaths());
 		statement.setInt(5, student.getScience());
 		statement.setInt(6, student.getSocial());
+
+		statement.setInt(4, student.getMalayalam());
+		statement.setInt(5, student.getSocial());
+		statement.setInt(6, student.getScience());
+
 		statement.setInt(7, student.getTotal());
 
 		// check inserted or not
@@ -59,13 +69,15 @@ public class StudentDao {
 
 		List<Student> listStudent = new ArrayList<>();
 
+		List<Student> studentList = new ArrayList();
+
 		connection = ConnectionFactory.getconnection();
 		// call prepare statement
 		statement = connection.prepareStatement(FIND_ALL);
 
 		// excecute query
 		resultSet = statement.executeQuery();
-
+		// get from resultset
 		while (resultSet.next()) {
 			// retrieve the details
 			Integer regId = resultSet.getInt("stud_id");
@@ -80,7 +92,10 @@ public class StudentDao {
 			// getting values to the patient object
 			Student student = new Student(regId, reName, reMaths, reEnglish,
 					reMalayalam, reSocial, reScience, total);
+
 			listStudent.add(student);
+
+			studentList.add(student);
 
 		}
 

@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <body style="background-color: skyblue">
+<form action="<%=request.getContextPath()%>/StudentServlet?action=insert" method="post">
 <h1 style="text-align: center;"> Register Student Details</h1>
 <hr>
 <form action="<%=request.getContextPath()%>/StudentServlet?action=insert" method="post">
@@ -35,4 +37,5 @@
 <button style="margin-left: 630px; ">Save</button>
 </form>
 </body>
+
 </html>
