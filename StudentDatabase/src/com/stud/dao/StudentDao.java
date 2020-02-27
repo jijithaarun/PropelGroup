@@ -18,7 +18,7 @@ public class StudentDao {
 	// query for display
 	private static String FIND_ALL = "select * from student";
 
-	// objects
+	// objects created
 	private Connection connection = null;
 	private PreparedStatement statement = null;
 	private ResultSet resultSet = null;
@@ -30,15 +30,16 @@ public class StudentDao {
 
 		statement = connection.prepareStatement(INSERT_STUDENT);
 
-		// set the values
-		
-		statement.setString(1, student.getName());
-		statement.setInt(2, student.getEnglish());
+		// set the values for query
 
-		statement.setInt(3, student.getMalayalam());
-		statement.setInt(4, student.getMaths());
-		statement.setInt(5, student.getScience());
-		statement.setInt(6, student.getSocial());
+		statement.setString(1, student.getName());
+		statement.setInt(2, student.getMaths());
+		statement.setInt(3, student.getEnglish());
+
+		statement.setInt(4, student.getMalayalam());
+		statement.setInt(5, student.getSocial());
+		statement.setInt(6, student.getScience());
+		
 		statement.setInt(7, student.getTotal());
 
 		// check inserted or not
@@ -57,7 +58,7 @@ public class StudentDao {
 	public List<Student> display() throws Exception {
 		// create an array list
 
-		List<Student>studentList=new ArrayList();
+		List<Student> studentList = new ArrayList();
 
 		connection = ConnectionFactory.getconnection();
 		// call prepare statement
@@ -65,7 +66,7 @@ public class StudentDao {
 
 		// excecute query
 		resultSet = statement.executeQuery();
-
+        //get from resultset
 		while (resultSet.next()) {
 			// retrieve the details
 			Integer regId = resultSet.getInt("stud_id");
