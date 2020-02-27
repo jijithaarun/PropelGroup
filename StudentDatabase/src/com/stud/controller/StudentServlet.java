@@ -24,10 +24,20 @@ public class StudentServlet extends HttpServlet {
 
 		switch (action) {
 		case "insert":
-			inserStudentMark(request, response);
+			try {
+				inserStudentMark(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		case "view":
-			viewStudentMark(request, response);
+			try {
+				viewStudentMark(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 
 		}
@@ -35,7 +45,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void viewStudentMark(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws Exception {
 
 		// creating object for StudentDao
 		StudentDao studentDao = new StudentDao();
@@ -49,7 +59,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void inserStudentMark(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+			HttpServletResponse response) throws Exception {
 
 		// reading values
 		String name = request.getParameter("studentname");
